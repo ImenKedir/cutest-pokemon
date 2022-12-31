@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react";
 import { getVotingOptions } from "@/utils/getRandomPokemon";
-import type { NextPage } from "next";
+import type { InferGetServerSidePropsType } from "next";
+import { useState } from "react";
 
-const Home: NextPage = () => {
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
-  if (!hydrated) {
-    return null;
-  }
-
-  const [first, second] = getVotingOptions();
-
+function Home({
+  data,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const [pokemonIds, setPokemonIds] = useState(data);
+  const [first, second] = pokemonIds;
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <div className="text-2xl text-center">Which Pokémon is cuter?</div>
@@ -25,6 +18,14 @@ const Home: NextPage = () => {
       </div>
     </div>
   );
-};
+}
 
+export async function getServerSideProps() {
+  const data = getVotingOptions();
+  return {
+    props: {
+      data,
+    },
+  };
+}
 export default Home;
