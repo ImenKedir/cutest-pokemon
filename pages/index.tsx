@@ -3,7 +3,12 @@ import Head from "next/head";
 import Image from "next/image";
 
 const Home: NextPage = () => {
-  return <div className="text-2xl text-red-500">HomeScreen</div>;
+  return (
+    <div>
+      <div>I will make my pokemon app here</div>
+      <div>- Imen, (note to future Imen)</div>
+    </div>
+  );
 };
 
 export default Home;
