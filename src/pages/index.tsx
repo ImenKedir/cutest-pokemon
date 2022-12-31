@@ -1,10 +1,10 @@
 import { getVotingOptions } from "@/utils/getRandomPokemon";
-import type { InferGetServerSidePropsType } from "next";
+import type { InferGetServerSidePropsType, NextPage } from "next";
 import { useState } from "react";
 
 function Home({
   data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetServerSidePropsType<typeof getServerSideProps>): NextPage {
   const [pokemonIds, setPokemonIds] = useState(data);
   const [first, second] = pokemonIds;
   console.log(pokemonIds);
