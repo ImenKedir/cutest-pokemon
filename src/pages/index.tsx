@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function Home({
   data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>): NextPage {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [pokemonIds, setPokemonIds] = useState(data);
   const [first, second] = pokemonIds;
   console.log(pokemonIds);
