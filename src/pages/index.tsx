@@ -22,7 +22,7 @@ function Home({
 }
 
 export async function getServerSideProps() {
-  const data = getVotingOptions();
+  const data = [1, 2];
   return {
     props: {
       data,
