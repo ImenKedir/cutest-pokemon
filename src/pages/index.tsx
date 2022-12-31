@@ -1,8 +1,19 @@
 import { getVotingOptions } from "@/utils/getRandomPokemon";
-import type { InferGetServerSidePropsType, NextPage } from "next";
+import { useState, useEffect } from "react";
 
-function Home(){
-  const [first, second] = [1, 2];
+function Home() {
+
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  if (!hydrated) {
+    return null;
+  }
+
+  const [first, second] = getVotingOptions();
+
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <div className="text-2xl text-center">Which Pokémon is cuter?</div>
