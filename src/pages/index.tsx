@@ -22,7 +22,7 @@ function Home() {
           <div className="capitalize">{firstPokemon.data?.name}</div>
           <img
             className="w-full"
-            src={firstPokemon.data?.sprites.front_default}
+            src={firstPokemon.data?.sprites.front_default!}
           />
         </div>
         <div className="p-8">Vs</div>
@@ -30,7 +30,7 @@ function Home() {
           <div className="capitalize">{secondPokemon.data?.name}</div>
           <img
             className="w-full"
-            src={secondPokemon.data?.sprites.front_default}
+            src={secondPokemon.data?.sprites.front_default!}
           />
         </div>
       </div>
