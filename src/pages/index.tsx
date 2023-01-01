@@ -30,7 +30,7 @@ function Home() {
             className="w-full"
             src={firstPokemon.data?.sprites.front_default!}
           />
-          <button className={btn} onClick={() => voteForPokemon(second)}>
+          <button className={btn} onClick={() => voteForPokemon(first)}>
             {firstPokemon.data?.name}
           </button>
         </div>
