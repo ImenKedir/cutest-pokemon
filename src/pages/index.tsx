@@ -5,7 +5,7 @@ import { inferRouterOutputs } from "@trpc/server";
 import { useState } from "react";
 import type React from "react";
 const btn =
-  "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow min-w-32";
+  "capitalize bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow min-w-32";
 
 function Home() {
   const [pokemonIds, setPokemonIds] = useState(getVotingOptions());
@@ -25,14 +25,16 @@ function Home() {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
-      <div className="text-2xl text-center">Which Pokémon is Cuter?</div>
-      <div className="p-4" />
+      <div className="text-4xl font-bold text-center">
+        Which Pokémon is Cuter?
+      </div>
+      <div className="p-2" />
       <div className="flex justify-between items-center">
         <PokemonListing
           pokemon={firstPokemon.data!}
           vote={() => voteForPokemon(first)}
         />
-        <div className="p-8">Vs</div>
+        <div className="p-4">Vs</div>
         <PokemonListing
           pokemon={secondPokemon.data!}
           vote={() => voteForPokemon(second)}
@@ -49,8 +51,8 @@ const PokemonListing: React.FC<{
   vote: () => void;
 }> = (props) => {
   return (
-    <div className="h-32 w-32 flex flex-col items-center">
-      <img className="w-full" src={props.pokemon.sprites.front_default!} />
+    <div className="flex flex-col items-center">
+      <img className="h-48 w-48" src={props.pokemon.sprites.front_default!} />
       <button className={btn} onClick={() => props.vote()}>
         {props.pokemon.name}
       </button>
