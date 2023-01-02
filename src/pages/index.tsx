@@ -1,6 +1,9 @@
+import { AppRouter } from "@/server/router";
 import { getVotingOptions } from "@/utils/getRandomPokemon";
 import { trpc } from "@/utils/trpc";
-import { useState, useEffect } from "react";
+import { inferRouterOutputs } from "@trpc/server";
+import { useState } from "react";
+import type React from "react";
 const btn =
   "bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow min-w-32";
 
@@ -25,28 +28,34 @@ function Home() {
       <div className="text-2xl text-center">Which Pokémon is Cuter?</div>
       <div className="p-4" />
       <div className="flex justify-between items-center">
-        <div className="h-32 w-32 flex flex-col items-center">
-          <img
-            className="w-full"
-            src={firstPokemon.data?.sprites.front_default!}
-          />
-          <button className={btn} onClick={() => voteForPokemon(first)}>
-            {firstPokemon.data?.name}
-          </button>
-        </div>
+        <PokemonListing
+          pokemon={firstPokemon.data!}
+          vote={() => voteForPokemon(first)}
+        />
         <div className="p-8">Vs</div>
-        <div className="h-32 w-32 flex flex-col items-center">
-          <img
-            className="w-full"
-            src={secondPokemon.data?.sprites.front_default!}
-          />
-          <button className={btn} onClick={() => voteForPokemon(second)}>
-            {secondPokemon.data?.name}
-          </button>
-        </div>
+        <PokemonListing
+          pokemon={secondPokemon.data!}
+          vote={() => voteForPokemon(second)}
+        />
       </div>
     </div>
   );
 }
+
+type PokemonFromServer = inferRouterOutputs<AppRouter>["getPokemonById"];
+
+const PokemonListing: React.FC<{
+  pokemon: PokemonFromServer;
+  vote: () => void;
+}> = (props) => {
+  return (
+    <div className="h-32 w-32 flex flex-col items-center">
+      <img className="w-full" src={props.pokemon.sprites.front_default!} />
+      <button className={btn} onClick={() => props.vote()}>
+        {props.pokemon.name}
+      </button>
+    </div>
+  );
+};
 
 export default Home;
