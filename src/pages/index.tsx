@@ -5,7 +5,7 @@ import { inferRouterOutputs } from "@trpc/server";
 import { useState } from "react";
 import type React from "react";
 const btn =
-  "capitalize bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow min-w-32";
+  "capitalize text-accent hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow min-w-32";
 
 function Home() {
   const [pokemonIds, setPokemonIds] = useState(getVotingOptions());
@@ -26,7 +26,7 @@ function Home() {
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <div className="text-3xl lg:text-4xl font-bold text-center">
-        Which Pokémon is Cuter?
+        Which <span className="text-accent">Pokémon</span> is Cuter?
       </div>
       <div className="p-2" />
       <div className="flex justify-between items-center">
