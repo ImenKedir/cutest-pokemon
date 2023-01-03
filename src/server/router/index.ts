@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { procedure, router } from "../trpc";
-
+import { procedure, router } from "@/server/trpc";
+import { prisma } from "@/server/utils/prisma";
 import { PokemonClient } from "pokenode-ts";
 
 export const appRouter = router({
@@ -9,7 +9,22 @@ export const appRouter = router({
     .query(async ({ input }) => {
       const api = new PokemonClient();
       const pokemon = await api.getPokemonById(input.id);
-      return {name: pokemon.name, sprites: pokemon.sprites };
+      return { name: pokemon.name, sprites: pokemon.sprites };
+    }),
+  castVote: procedure
+    .input(
+      z.object({
+        votedFor: z.number(),
+        votedAgainst: z.number(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const voteInDb = await prisma.vote.create({
+        data: {
+          ...input
+        }
+      });
+      return { success: true };
     }),
 });
 // export type definition of API
