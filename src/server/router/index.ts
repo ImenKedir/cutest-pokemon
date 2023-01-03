@@ -24,7 +24,7 @@ export const appRouter = router({
           ...input
         }
       });
-      return { success: true };
+      return { success: true, vote: voteInDb};
     }),
 });
 // export type definition of API

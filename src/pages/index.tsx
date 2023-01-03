@@ -13,14 +13,24 @@ function Home() {
 
   const firstPokemon = trpc.getPokemonById.useQuery({ id: first });
   const secondPokemon = trpc.getPokemonById.useQuery({ id: second });
-
-  if (firstPokemon.isLoading || secondPokemon.isLoading) {
-    return null;
-  }
+  
+  const voteMutation = trpc.castVote.useMutation();
 
   function voteForPokemon(pokemonId: number) {
-    /* fire mutation to presiste data */
+    if (pokemonId === first) {
+      voteMutation.mutate({ votedFor: first, votedAgainst: second });
+    } else {
+      voteMutation.mutate({ votedFor: second, votedAgainst: first });
+    }
     setPokemonIds(getVotingOptions);
+  }
+  
+  if (firstPokemon.isLoading || secondPokemon.isLoading) {
+    return (
+      <div className="h-screen w-screen flex flex-col justify-center items-center ">
+        <div className="text-3xl lg:text-4xl">Loading...</div>
+      </div>
+    );
   }
 
   return (
@@ -52,7 +62,10 @@ const PokemonListing: React.FC<{
 }> = (props) => {
   return (
     <div className="flex flex-col items-center">
-      <img className="h-32 w-32 lg:h-48 lg:w-48" src={props.pokemon.sprites.front_default!} />
+      <img
+        className="h-32 w-32 lg:h-48 lg:w-48"
+        src={props.pokemon.sprites.front_default!}
+      />
       <button className={btn} onClick={() => props.vote()}>
         {props.pokemon.name}
       </button>
