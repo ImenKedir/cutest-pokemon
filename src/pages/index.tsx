@@ -25,7 +25,7 @@ function Home() {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
-      <div className="text-4xl font-bold text-center">
+      <div className="text-3xl lg:text-4xl font-bold text-center">
         Which Pokémon is Cuter?
       </div>
       <div className="p-2" />
@@ -52,7 +52,7 @@ const PokemonListing: React.FC<{
 }> = (props) => {
   return (
     <div className="flex flex-col items-center">
-      <img className="h-48 w-48" src={props.pokemon.sprites.front_default!} />
+      <img className="h-32 w-32 lg:h-48 lg:w-48" src={props.pokemon.sprites.front_default!} />
       <button className={btn} onClick={() => props.vote()}>
         {props.pokemon.name}
       </button>
