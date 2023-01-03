@@ -13,7 +13,7 @@ function Home() {
 
   const firstPokemon = trpc.getPokemonById.useQuery({ id: first });
   const secondPokemon = trpc.getPokemonById.useQuery({ id: second });
-  
+
   const voteMutation = trpc.castVote.useMutation();
 
   function voteForPokemon(pokemonId: number) {
@@ -24,8 +24,13 @@ function Home() {
     }
     setPokemonIds(getVotingOptions);
   }
-  
-  if (firstPokemon.isLoading || secondPokemon.isLoading) {
+
+  if (
+    firstPokemon.isLoading ||
+    !firstPokemon.data ||
+    secondPokemon.isLoading ||
+    !secondPokemon.data
+  ) {
     return (
       <div className="h-screen w-screen flex flex-col justify-center items-center ">
         <div className="text-3xl lg:text-4xl">Loading...</div>
