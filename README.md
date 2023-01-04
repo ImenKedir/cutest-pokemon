@@ -1,34 +1,107 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a name="readme-top"></a>
 
-## Getting Started
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-First, run the development server:
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+<h3 align="center">Cutest Pokémon</h3>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+  <p align="center">
+    A simple web app to answer one of the worlds hardest questions.
+    <br />
+    <a href="https://github.com/ImenKedir/cutest-pokemon"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://pokemon.imen.dev">View Production Deployment</a>
+    ·
+    <a href="https://github.com/ImenKedir/cutest-pokemon/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/ImenKedir/cutest-pokemon/issues">Request Feature</a>
+  </p>
+</div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!-- ABOUT THE PROJECT -->
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## About The Project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This web app was built to collect data on Pokémon cutness. Users are prompted to vote for the Pokémon they find the cutests. The voting data is persisted in a database and alanytics are generated from the collected data.
 
-## Learn More
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. Clone the repo
+   ```sh
+   git clone https://github.com/ImenKedir/cutest-pokemon.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start the local dev server
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Roadmap
+
+- [ ] Image cacheing
+- [ ] Results page
+- [ ] Persiste data fetched from pokemon api
+
+See the [open issues](https://github.com/ImenKedir/cutest-pokemon/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/ImenKedir/cutest-pokemon.svg?style=for-the-badge
+[contributors-url]: https://github.com/ImenKedir/cutest-pokemon/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ImenKedir/cutest-pokemon.svg?style=for-the-badge
+[forks-url]: https://github.com/ImenKedir/cutest-pokemon/network/members
+[stars-shield]: https://img.shields.io/github/stars/ImenKedir/cutest-pokemon.svg?style=for-the-badge
+[stars-url]: https://github.com/ImenKedir/cutest-pokemon/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ImenKedir/cutest-pokemon.svg?style=for-the-badge
+[issues-url]: https://github.com/ImenKedir/cutest-pokemon/issues
+[product-screenshot]: public/screenshot.png

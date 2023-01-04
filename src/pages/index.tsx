@@ -46,7 +46,7 @@ function Home() {
       <div className="p-2" />
       <div className="flex justify-between items-center">
         <PokemonListing
-          pokemon={firstPokemon.data!}
+          pokemon={firstPokemon.data}
           vote={() => voteForPokemon(first)}
         />
         <div className="p-4">Vs</div>

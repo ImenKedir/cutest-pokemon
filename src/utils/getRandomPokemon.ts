@@ -12,7 +12,7 @@ export function getRandomPokemon(notThisOne?: number): number {
 
 export function getVotingOptions(): number[] {
   const firstPokemon = getRandomPokemon();
-  const secondPoekmon = getRandomPokemon(firstPokemon);
+  const secondPokemon = getRandomPokemon(firstPokemon);
 
-  return [firstPokemon, secondPoekmon];
+  return [firstPokemon, secondPokemon];
 }
