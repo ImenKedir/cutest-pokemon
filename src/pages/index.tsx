@@ -3,11 +3,12 @@ import { getVotingOptions } from "@/utils/getRandomPokemon";
 import { trpc } from "@/utils/trpc";
 import { inferRouterOutputs } from "@trpc/server";
 import { useState } from "react";
+import Link from "next/link";
 import type React from "react";
 const btn =
   "capitalize text-accent hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow min-w-32";
 
-function Home() {
+const Home = () => {
   const [pokemonIds, setPokemonIds] = useState(getVotingOptions());
   const [first, second] = pokemonIds;
 
@@ -55,9 +56,14 @@ function Home() {
           vote={() => voteForPokemon(second)}
         />
       </div>
+      <div className="absolute bottom-16">
+        <div className="capitalize hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow min-w-32">
+          <Link href="/results">Top 10</Link>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 type PokemonFromServer = inferRouterOutputs<AppRouter>["getPokemonById"];
 

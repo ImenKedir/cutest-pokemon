@@ -21,11 +21,20 @@ export const appRouter = router({
     .mutation(async ({ input }) => {
       const voteInDb = await prisma.vote.create({
         data: {
-          ...input
-        }
+          ...input,
+        },
       });
-      return { success: true, vote: voteInDb};
+      return { success: true, vote: voteInDb };
     }),
+  getAllVotes: procedure.input(z.void()).query(async () => {
+    const votes = await prisma.vote.findMany({
+      select: {
+        votedFor: true,
+        votedAgainst: true,
+      },
+    });
+    return votes;
+  }),
 });
 // export type definition of API
 export type AppRouter = typeof appRouter;
